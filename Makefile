@@ -129,10 +129,10 @@ test-regression-coverage:
 
 # internal target used in docker build
 _build-test-regression:
-	@go install -ldflags '$(ldflags)' -tags=testnet,regtest ./cmd/arkeod ./cmd/sentinel
-	@go build -ldflags '$(ldflags)' -cover -tags=testnet,regtest -o /regtest/cover-arkeod ./cmd/arkeod
-	@go build -ldflags '$(ldflags)' -cover -tags=testnet,regtest -o /regtest/cover-sentinel ./cmd/sentinel
-	@go build -ldflags '$(ldflags)' -tags testnet -o /regtest/regtest ./test/regression/cmd
+	go install -ldflags '$(ldflags)' -tags=testnet,regtest ./cmd/arkeod ./cmd/sentinel
+	go build -ldflags '$(ldflags)' -cover -tags=testnet,regtest -o /regtest/cover-arkeod ./cmd/arkeod
+	go build -ldflags '$(ldflags)' -cover -tags=testnet,regtest -o /regtest/cover-sentinel ./cmd/sentinel
+	go build -ldflags '$(ldflags)' -tags testnet -o /regtest/regtest ./test/regression/cmd
 
 # internal target used in test run
 _test-regression:
